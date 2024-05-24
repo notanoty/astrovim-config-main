@@ -17,3 +17,7 @@ end
 -- hello
 require "lazy_setup"
 require "polish"
+require("astroui").setup {}
+require("notify").setup {
+  background_colour = "#1e1e1e", -- A dark gray color
+}
