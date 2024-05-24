@@ -1,5 +1,3 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
-
 -- AstroCore provides a central place to modify mappings, vim options, autocommands, and more!
 -- Configuration documentation can be found with `:h astrocore`
 -- NOTE: We highly recommend setting up the Lua Language Server (`:LspInstall lua_ls`)
@@ -27,7 +25,7 @@ return {
     -- vim options can be configured here
     options = {
       opt = { -- vim.opt.<key>
-        relativenumber = true, -- sets vim.opt.relativenumber
+        relativenumber = false, -- sets vim.opt.relativenumber
         number = true, -- sets vim.opt.number
         spell = false, -- sets vim.opt.spell
         signcolumn = "yes", -- sets vim.opt.signcolumn to yes
@@ -49,7 +47,12 @@ return {
         -- navigate buffer tabs
         ["]b"] = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
         ["[b"] = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
-
+        vim.api.nvim_set_keymap("n", "<leader>Lfb", "i\\begin{figure}<Esc>", { noremap = true, silent = true }),
+        vim.api.nvim_set_keymap("n", "<leader>Lfe", "i\\end{figure}<Esc>", { noremap = true, silent = true }),
+        vim.api.nvim_set_keymap("n", "<leader>ww", ":wa<CR>", { noremap = true, silent = true }),
+        vim.api.nvim_set_keymap("n", "<Tab>", ":bnext<CR>", { noremap = true, silent = true }),
+        vim.api.nvim_set_keymap("n", "<S-Tab>", ":bprevious<CR>", { noremap = true, silent = true }),
+        vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, {}),
         -- mappings seen under group name "Buffer"
         ["<Leader>bd"] = {
           function()
@@ -57,6 +60,15 @@ return {
               function(bufnr) require("astrocore.buffer").close(bufnr) end
             )
           end,
+          -- ["<leader>b"] = { name = "Buffers" },
+          -- ["<leader>a"] = {"i\\begin{figure}<Esc>"},
+          -- vim.api.nvim_set_keymap("n", "<leader>Lfb", "i\\begin{figure}<Esc>", { noremap = true, silent = true }),
+          -- vim.api.nvim_set_keymap("n", "<leader>Lfe", "i\\end{figure}<Esc>", { noremap = true, silent = true }),
+          -- vim.api.nvim_set_keymap("n", "<leader>ww", ":wa<CR>", { noremap = true, silent = true }),
+          -- vim.api.nvim_set_keymap("n", "<Tab>", ":bnext<CR>", { noremap = true, silent = true }),
+          -- vim.api.nvim_set_keymap("n", "<S-Tab>", ":bprevious<CR>", { noremap = true, silent = true }),
+          -- vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, {}),
+          --
           desc = "Close buffer from tabline",
         },
 
