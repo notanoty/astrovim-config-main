@@ -6,26 +6,13 @@ return {
       -- your personnal icons can go here (to override)
       -- you can specify color or cterm_color instead of specifying both of them
       -- DevIcon will be appended to `name`
-      override = {
-        zsh = {
-          icon = "",
-          color = "#428850",
-          cterm_color = "65",
-          name = "Zsh",
-        },
-        cjs = {
-          icon = "", --  the new icon you want to use
-          color = "#f0db4f", -- optional: color for the icon
-          cterm_color = "185", -- optional: cterm color
-          name = "cjs", -- name for the icon
-        },
-        js = {
-          icon = "", --  the new icon you want to use
-          color = "#f0db4f", -- optional: color for the icon
-          cterm_color = "185", -- optional: cterm color
-          name = "js", -- name for the icon
-        },
-      },
+      override = {},
+      -- zsh = {
+      -- icon = "",
+      -- color = "#428850",
+      -- cterm_color = "65",
+      -- name = "Zsh",
+      -- },
       -- globally enable different highlight colors per icon (default to true)
       -- if set to false all icons will have the default icon's color
       color_icons = true,
@@ -45,12 +32,6 @@ return {
           color = "#f1502f",
           name = "Gitignore",
         },
-        ["a.js"] = {
-          icon = "", --  the new icon you want to use
-          color = "#f0db4f", -- optional: color for the icon
-          cterm_color = "185", -- optional: cterm color
-          name = "js", -- name for the icon
-        },
       },
       -- same as `override` but specifically for overrides by extension
       -- takes effect when `strict` is true
@@ -59,6 +40,12 @@ return {
           icon = "",
           color = "#81e043",
           name = "Log",
+        },
+        ["js"] = {
+          icon = "", -- 
+          color = "#f0db4f",
+          cterm_color = "185",
+          name = "Js",
         },
       },
       -- same as `override` but specifically for operating system

@@ -38,6 +38,7 @@ return {
       LSPLoading10 = "",
       -- javascript = "",
       -- cjs = "",
+      -- DevIconJs = "",
       -- js = "",
       -- LSPLoading1 = "X",
       -- LSPLoading2 = "y",
