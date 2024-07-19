@@ -47,6 +47,13 @@ return {
           cterm_color = "185",
           name = "Js",
         },
+        ["lisp"] = {
+        
+          icon = "",
+          color = "#fffff4",
+          cterm_color = "185",
+          name = "Lisp",
+        }
       },
       -- same as `override` but specifically for operating system
       -- takes effect when `strict` is true

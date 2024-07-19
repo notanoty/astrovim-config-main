@@ -6,7 +6,6 @@ if not (vim.env.LAZY or (vim.uv or vim.loop).fs_stat(lazypath)) then
   vim.fn.system({ "git", "clone", "--filter=blob:none", "https://github.com/folke/lazy.nvim.git", "--branch=stable", lazypath })
 end
 vim.opt.rtp:prepend(lazypath)
-
 -- validate that lazy is available
 if not pcall(require, "lazy") then
   -- stylua: ignore
@@ -14,6 +13,7 @@ if not pcall(require, "lazy") then
   vim.fn.getchar()
   vim.cmd.quit()
 end
+
 -- hello
 require "lazy_setup"
 require "polish"
@@ -21,3 +21,13 @@ require("astroui").setup {}
 require("notify").setup {
   background_colour = "#1e1e1e", -- A dark gray color
 }
+
+-- Add the plugin directory to runtimepath
+-- vim.opt.runtimepath:append(vim.fn.expand "~/Desktop/programming/lua-plugin")
+-- vim.opt.runtimepath:append(vim.fn.expand "~/Desktop/programming/lua-plugins/config-helper")
+-- Adjust Lua's package.path to include the directory
+-- package.path = package.path .. ";" .. vim.fn.expand "~/Desktop/programming/lua-plugins/config-helper/lua/?.lua"
+-- package.path = package.path .. ";" .. vim.fn.expand "~/Desktop/programming/lua-plugins/config-helper/lua/?/init.lua"
+
+-- Require the plugin
+-- require("config-helper").setup {}
