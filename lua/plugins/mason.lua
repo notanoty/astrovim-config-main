@@ -15,6 +15,8 @@ return {
         "tsserver",
         "html",
         "lua_ls",
+        "tailwindcss",
+        "eslint",
         -- add more arguments for adding more language servers
       })
     end,

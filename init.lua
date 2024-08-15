@@ -14,20 +14,13 @@ if not pcall(require, "lazy") then
   vim.cmd.quit()
 end
 
--- hello
 require "lazy_setup"
 require "polish"
 require("astroui").setup {}
 require("notify").setup {
   background_colour = "#1e1e1e", -- A dark gray color
 }
+require "plugin_dev"
 
--- Add the plugin directory to runtimepath
--- vim.opt.runtimepath:append(vim.fn.expand "~/Desktop/programming/lua-plugin")
--- vim.opt.runtimepath:append(vim.fn.expand "~/Desktop/programming/lua-plugins/config-helper")
--- Adjust Lua's package.path to include the directory
--- package.path = package.path .. ";" .. vim.fn.expand "~/Desktop/programming/lua-plugins/config-helper/lua/?.lua"
--- package.path = package.path .. ";" .. vim.fn.expand "~/Desktop/programming/lua-plugins/config-helper/lua/?/init.lua"
-
--- Require the plugin
--- require("config-helper").setup {}
+-- Delay the execution to ensure Copilot is loaded
+vim.defer_fn(function() vim.cmd "Copilot disable" end, 100) -- 100ms delay

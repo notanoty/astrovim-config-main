@@ -3,6 +3,8 @@
 -- NOTE: We highly recommend setting up the Lua Language Server (`:LspInstall lua_ls`)
 --       as this provides autocomplete and documentation while editing
 
+-- local base = require("lspconfig")
+
 ---@type LazySpec
 return {
   "AstroNvim/astrolsp",
@@ -19,7 +21,7 @@ return {
     formatting = {
       -- control auto formatting on save
       format_on_save = {
-        enabled = false, -- enable or disable format on save globally
+        enabled = true, -- enable or disable format on save globally
         allow_filetypes = { -- enable format on save for specified filetypes only
           -- "go",
         },
@@ -44,6 +46,10 @@ return {
     ---@diagnostic disable: missing-fields
     config = {
       -- clangd = { capabilities = { offsetEncoding = "utf-8" } },
+      -- tailwindcss = {
+      --   on_attach = base.on_attach,
+      --   capabilities = base.capabilities,
+      -- },
       settings = {
         Lua = {
           analysis = {
