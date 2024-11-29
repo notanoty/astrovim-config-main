@@ -22,5 +22,16 @@ require("notify").setup {
 }
 require "plugin_dev"
 
+local cmp_nvim_lsp = require "cmp_nvim_lsp"
+
+require("lspconfig").clangd.setup {
+  on_attach = on_attach,
+  capabilities = cmp_nvim_lsp.default_capabilities(),
+  cmd = {
+    "clangd",
+    "--offset-encoding=utf-16",
+  },
+}
+
 -- Delay the execution to ensure Copilot is loaded
-vim.defer_fn(function() vim.cmd "Copilot disable" end, 100) -- 100ms delay
+vim.defer_fn(function() vim.cmd "Copilot disable" end, 1000) -- 100ms delay
